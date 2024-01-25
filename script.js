@@ -60,7 +60,29 @@ function createDivsForColors(colorArray) {
 // TODO: Implement this function!
 function handleCardClick(event) {
   // you can use event.target to see which element was clicked
-  console.log("you just clicked", event.target);
+  console.log("you just clicked", event.target.className);
+  let cardsClicked = 0
+  if (cardsClicked === 0) {
+    event.target.style.backgroundColor = event.target.className;
+    let firstGuess = event.target.className;
+    event.target.classList.add('flipped');
+    cardsClicked += 1;
+    console.log(cardsClicked, firstGuess)
+  } if (cardsClicked === 1 && event.target.classList != 'flipped') {
+    event.target.style.backgroundColor = event.target.className;
+    let secondGuess = event.target.className;
+    event.target.classList.add('flipped');
+    cardsClicked += 1;
+    console.log(cardsClicked, secondGuess)
+  } else if (cardsClicked === 2) {
+    console.log('done')
+  }
+
+  setTimeout((e) => {
+    event.target.style.backgroundColor = 'white';
+    cardsClicked = 0;
+    this.classList.remove('flipped');
+  }, 2000)
 }
 
 // when the DOM loads
