@@ -61,11 +61,11 @@ let clickedCard = 0;
 let firstGuess = '';
 let secondGuess = '';
 
+
 // TODO: Implement this function!
 function handleCardClick(event) {
   // you can use event.target to see which element was clicked
   // console.log("you just clicked", event.target.className);
-  // let clickedCard = 0;
   if (!firstGuess) {
     event.target.style.backgroundColor = event.target.className;
     firstGuess = event.target.className;
@@ -76,13 +76,7 @@ function handleCardClick(event) {
     clickedCard += 1;
   }
 
-  if (firstGuess === secondGuess) {
-    console.log('match!');
-    firstGuess = '';
-    secondGuess = '';
-    clickedCard = 0;
-    return;
-  } else if (firstGuess != secondGuess){
+  if (firstGuess != secondGuess){
     setTimeout((e) => {
       event.target.style.backgroundColor = 'white';
       clickedCard = 0;
@@ -90,27 +84,13 @@ function handleCardClick(event) {
       secondGuess = '';
       // this.classList.remove('flipped');
     }, 1000)
+  } else if (firstGuess === secondGuess) {
+    console.log('match!');
+    firstGuess = '';
+    secondGuess = '';
+    clickedCard = 0;
+    return;
   }
-
-  // if (event.target.classList == 'flipped') {
-  //   return;
-  // } else {
-  // let cardsClicked = 0
-  // if (cardsClicked === 0) {
-  //   event.target.style.backgroundColor = event.target.className;
-  //   let firstGuess = event.target.className;
-  //   event.target.classList.add('flipped');
-  //   cardsClicked += 1;
-  //   console.log(cardsClicked, firstGuess)
-  // } if (cardsClicked === 1 && event.target.classList != 'flipped') {
-  //   event.target.style.backgroundColor = event.target.className;
-  //   let secondGuess = event.target.className;
-  //   event.target.classList.add('flipped');
-  //   cardsClicked += 1;
-  //   console.log(cardsClicked, secondGuess)
-  // } else if (cardsClicked === 2) {
-  //   console.log('done')
-  // }}
 }
 
 // when the DOM loads
