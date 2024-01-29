@@ -61,37 +61,51 @@ let clickedCard = 0;
 let firstGuess = '';
 let secondGuess = '';
 
-
 // TODO: Implement this function!
 function handleCardClick(event) {
   // you can use event.target to see which element was clicked
-  // console.log("you just clicked", event.target.className);
-  if (!firstGuess) {
+  console.log("you just clicked", event.target.className);
+  if (clickedCard === 0) {
     event.target.style.backgroundColor = event.target.className;
-    firstGuess = event.target.className;
+    firstGuess = event.target;
     clickedCard += 1;
-  } else if (firstGuess && !secondGuess) {
+  } else if (clickedCard === 1) {
     event.target.style.backgroundColor = event.target.className;
-    secondGuess = event.target.className;
+    secondGuess = event.target;
     clickedCard += 1;
   }
-
-  if (firstGuess != secondGuess){
-    setTimeout((e) => {
-      event.target.style.backgroundColor = 'white';
-      clickedCard = 0;
-      firstGuess = '';
-      secondGuess = '';
-      // this.classList.remove('flipped');
-    }, 1000)
-  } else if (firstGuess === secondGuess) {
+ 
+  if (firstGuess.className === secondGuess.className) {
     console.log('match!');
+    firstGuess.style.backgroundColor = firstGuess.className;
+    secondGuess.style.backgroundColor = secondGuess.className;
     firstGuess = '';
     secondGuess = '';
     clickedCard = 0;
     return;
   }
+  
+  
+  setTimeout(() => {
+      firstGuess.style.backgroundColor = 'white';
+      secondGuess.style.backgroundColor = 'white';
+      clickedCard = 0;
+      firstGuess = '';
+      secondGuess = '';
+    }, 1000)
+  }
+
+
+const match = (firstGuess, secondGuess) => {
+  console.log('match!');
+  firstGuess.style.backgroundColor = firstGuess.className;
+  secondGuess.style.backgroundColor = secondGuess.className;
+  firstGuess = '';
+  secondGuess = '';
+  clickedCard = 0;
+  return
 }
+
 
 // when the DOM loads
 createDivsForColors(shuffledColors);
