@@ -60,18 +60,24 @@ function createDivsForColors(colorArray) {
 let clickedCard = 0;
 let firstGuess = '';
 let secondGuess = '';
+let currentScore = document.querySelector('.current');
+let score = 0;
+currentScore.innerText = score;
 
 // TODO: Implement this function!
 function handleCardClick(event) {
   // you can use event.target to see which element was clicked
   console.log("you just clicked", event.target.className);
+  score++;
   if (clickedCard === 0) {
     event.target.style.backgroundColor = event.target.className;
     firstGuess = event.target;
+    currentScore.innerText = score;
     clickedCard += 1;
   } else if (clickedCard === 1) {
     event.target.style.backgroundColor = event.target.className;
     secondGuess = event.target;
+    currentScore.innerText = score;
     clickedCard += 1;
   }
  
@@ -92,19 +98,19 @@ function handleCardClick(event) {
       clickedCard = 0;
       firstGuess = '';
       secondGuess = '';
-    }, 1000)
+    }, 1500)
   }
 
 
-const match = (firstGuess, secondGuess) => {
-  console.log('match!');
-  firstGuess.style.backgroundColor = firstGuess.className;
-  secondGuess.style.backgroundColor = secondGuess.className;
-  firstGuess = '';
-  secondGuess = '';
-  clickedCard = 0;
-  return
-}
+// const match = (firstGuess, secondGuess) => {
+//   console.log('match!');
+//   firstGuess.style.backgroundColor = firstGuess.className;
+//   secondGuess.style.backgroundColor = secondGuess.className;
+//   firstGuess = '';
+//   secondGuess = '';
+//   clickedCard = 0;
+//   return
+// }
 
 
 // when the DOM loads
