@@ -89,16 +89,18 @@ function handleCardClick(event) {
     secondGuess = '';
     clickedCard = 0;
     return;
-  }
-  
-  
-  setTimeout(() => {
+  } else if (clickedCard === 2) {
+    setTimeout(() => {
       firstGuess.style.backgroundColor = 'white';
       secondGuess.style.backgroundColor = 'white';
       clickedCard = 0;
       firstGuess = '';
       secondGuess = '';
-    }, 1500)
+    }, 1000)
+  }
+  
+  
+
   }
 
 
