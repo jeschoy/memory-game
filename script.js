@@ -64,6 +64,7 @@ let currentScore = document.querySelector('.current');
 let score = 0;
 currentScore.innerText = score;
 
+
 // TODO: Implement this function!
 function handleCardClick(event) {
   // you can use event.target to see which element was clicked
