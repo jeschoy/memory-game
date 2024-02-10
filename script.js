@@ -98,22 +98,7 @@ function handleCardClick(event) {
       secondGuess = '';
     }, 1000)
   }
-  
-  
-
   }
-
-
-// const match = (firstGuess, secondGuess) => {
-//   console.log('match!');
-//   firstGuess.style.backgroundColor = firstGuess.className;
-//   secondGuess.style.backgroundColor = secondGuess.className;
-//   firstGuess = '';
-//   secondGuess = '';
-//   clickedCard = 0;
-//   return
-// }
-
 
 // when the DOM loads
 createDivsForColors(shuffledColors);
