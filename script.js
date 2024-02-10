@@ -73,11 +73,13 @@ function handleCardClick(event) {
   if (clickedCard === 0) {
     event.target.style.backgroundColor = event.target.className;
     firstGuess = event.target;
+    firstGuess.classList.add('flipped');
     currentScore.innerText = score;
     clickedCard += 1;
-  } else if (clickedCard === 1) {
+  } else if (clickedCard === 1 && !event.target.classList.contains('flipped')) {
     event.target.style.backgroundColor = event.target.className;
     secondGuess = event.target;
+    secondGuess.classList.add('flipped');
     currentScore.innerText = score;
     clickedCard += 1;
   }
@@ -94,6 +96,8 @@ function handleCardClick(event) {
     setTimeout(() => {
       firstGuess.style.backgroundColor = 'white';
       secondGuess.style.backgroundColor = 'white';
+      firstGuess.classList.remove('flipped');
+      secondGuess.classList.remove('flipped');
       clickedCard = 0;
       firstGuess = '';
       secondGuess = '';
