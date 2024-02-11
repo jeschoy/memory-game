@@ -63,6 +63,16 @@ let secondGuess = '';
 let currentScore = document.querySelector('.current');
 let score = 0;
 currentScore.innerText = score;
+const resetBtn = document.getElementById('reset');
+
+resetBtn.addEventListener('click', function (e) {
+  while (gameContainer.firstChild) {
+    gameContainer.removeChild(gameContainer.firstChild);
+  }
+  let shuffledColors = shuffle(COLORS);
+  createDivsForColors(shuffledColors);
+  currentScore.innerText = 0;
+})
 
 
 // TODO: Implement this function!
