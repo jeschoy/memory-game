@@ -65,6 +65,7 @@ let score = 0;
 currentScore.innerText = score;
 const resetBtn = document.getElementById('reset');
 
+//Reset button to reset game and score
 resetBtn.addEventListener('click', function (e) {
   while (gameContainer.firstChild) {
     gameContainer.removeChild(gameContainer.firstChild);
@@ -78,7 +79,6 @@ resetBtn.addEventListener('click', function (e) {
 // TODO: Implement this function!
 function handleCardClick(event) {
   // you can use event.target to see which element was clicked
-  console.log("you just clicked", event.target.className);
   score++;
   if (clickedCard === 0) {
     event.target.style.backgroundColor = event.target.className;
